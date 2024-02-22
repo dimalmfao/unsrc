@@ -15,7 +15,7 @@ const displayVelocityX2 = document.getElementById("vx2");
 const displayVelocityY2 = document.getElementById("vy2");
 const displayMass2 = document.getElementById("m2");
 
-var canvas = document.getElementById('myCanvas');
+var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
 let zoom = 0.5;
