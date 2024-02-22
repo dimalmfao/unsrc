@@ -1,3 +1,5 @@
+document.addEventListener("DOMContentLoaded", function() {
+
 // Get references to the input elements and the canvas
 const gravitationalConstantInput = document.getElementById("g");
 
@@ -232,3 +234,4 @@ function updateDisplayValue() {
 }
 
 update();
+});
