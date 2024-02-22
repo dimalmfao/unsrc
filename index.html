@@ -3,7 +3,99 @@
     <title>unsrc</title>
   </head>
   <body>
-    <script>document.addEventListener("DOMContentLoaded", function() {
+    <button onclick="reset()">Reset</button>
+    <button onclick="dezoom()">Dezoom</button>
+    <button onclick="zoomIn()">Zoom</button>
+    <h1>unsrc "orbital simulator"</h1>
+    <div>
+      <h3>Constant</h3>
+        <label for="g">gravitational constant:</label>
+        <input type="number" step="1" value=500 id="g">
+      
+      <h3>blue planet</h3>
+        <label for="velocityX">velocity X:</label>
+        <input
+          type="range"
+          id="velocityX"
+          min="-10"
+          max="10"
+          value="3.5"
+          step="0.1"
+          disabled
+        />
+        <span id="vx"></span>
+        <br />
+        <label for="velocityY">velocity Y:</label>
+        <input
+          type="range"
+          id="velocityY"
+          min="-10"
+          max="10"
+          value="0"
+          step="0.1"
+          disabled
+        />
+        <span id="vy"></span>
+        <br />
+        <label for="mass">mass:</label>
+        <input
+          type="range"
+          id="mass"
+          min="0"
+          max="15"
+          value="1"
+          step="0.5"
+        />
+        <span id="m"></span>
+
+      <h3>red planet</h3>
+        <label for="velocityX2">velocity X:</label>
+        <input
+          type="range"
+          id="velocityX2"
+          min="-10"
+          max="10"
+          value="3.5"
+          step="0.1"
+          disabled
+        />
+        <span id="vx2"></span>
+        <br />
+        <label for="velocityY2">velocity Y:</label>
+        <input
+          type="range"
+          id="velocityY2"
+          min="-10"
+          max="10"
+          value="0"
+          step="0.1"
+          disabled
+        />
+        <span id="vy2"></span>
+        <br />
+        <label for="mass2">mass:</label>
+        <input
+          type="range"
+          id="mass2"
+          min="0"
+          max="15"
+          value="10"
+          step="0.5"
+        />
+        <span id="m2"></span>
+    </div>
+    
+    <canvas 
+    id="canvas"
+    width="800" 
+    height="800" 
+    style="margin-top: 20px; border:black 3px solid;">
+    </canvas>
+	  <p>also, use it carefully because you can easily break the simulator</p>
+  </body>
+   <script>
+   
+document.addEventListener("DOMContentLoaded", function() {
 
 // Get references to the input elements and the canvas
 const gravitationalConstantInput = document.getElementById("g");
@@ -239,94 +331,6 @@ function updateDisplayValue() {
 }
 
 update();
-});</script>
-    <button onclick="reset()">Reset</button>
-    <button onclick="dezoom()">Dezoom</button>
-    <button onclick="zoomIn()">Zoom</button>
-    <h1>unsrc "orbital simulator"</h1>
-    <div>
-      <h3>Constant</h3>
-        <label for="g">gravitational constant:</label>
-        <input type="number" step="1" value=500 id="g">
-      
-      <h3>blue planet</h3>
-        <label for="velocityX">velocity X:</label>
-        <input
-          type="range"
-          id="velocityX"
-          min="-10"
-          max="10"
-          value="3.5"
-          step="0.1"
-          disabled
-        />
-        <span id="vx"></span>
-        <br />
-        <label for="velocityY">velocity Y:</label>
-        <input
-          type="range"
-          id="velocityY"
-          min="-10"
-          max="10"
-          value="0"
-          step="0.1"
-          disabled
-        />
-        <span id="vy"></span>
-        <br />
-        <label for="mass">mass:</label>
-        <input
-          type="range"
-          id="mass"
-          min="0"
-          max="15"
-          value="1"
-          step="0.5"
-        />
-        <span id="m"></span>
-
-      <h3>red planet</h3>
-        <label for="velocityX2">velocity X:</label>
-        <input
-          type="range"
-          id="velocityX2"
-          min="-10"
-          max="10"
-          value="3.5"
-          step="0.1"
-          disabled
-        />
-        <span id="vx2"></span>
-        <br />
-        <label for="velocityY2">velocity Y:</label>
-        <input
-          type="range"
-          id="velocityY2"
-          min="-10"
-          max="10"
-          value="0"
-          step="0.1"
-          disabled
-        />
-        <span id="vy2"></span>
-        <br />
-        <label for="mass2">mass:</label>
-        <input
-          type="range"
-          id="mass2"
-          min="0"
-          max="15"
-          value="10"
-          step="0.5"
-        />
-        <span id="m2"></span>
-    </div>
-    
-    <canvas 
-    id="canvas"
-    width="800" 
-    height="800" 
-    style="margin-top: 20px; border:black 3px solid;">
-    </canvas>
-  </body>
+});
+</script>
 </html>
