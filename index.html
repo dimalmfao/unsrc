@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Website</title>
+<style>
+  @import url('https://fonts.cdnfonts.com/css/cascadia-code');
+  html, body {
+    font-family: 'Cascadia Code', sans-serif;    
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  
+  @keyframes fadeOutAndSlide {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(-50px);
+    }
+  }
+
+  #animation-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  
+  #animation-container.active {
+    opacity: 1;
+  }
+  
+  #animation-text {
+    font-size: 56px;
+    color: #333;
+    font-weight: bold;
+    transition: opacity 0.5s ease-in-out;
+    animation: fadeOutAndSlide 1s ease-in-out 1s forwards;
+  }
+
+  #description {
+    position: absolute;
+    top: 45%;
+    left: 37%;
+    font-size: 22px; 
+    opacity: 0;
+    color: #333;
+    transition-delay: 350ms; /* Transition delay should come after transition property */
+    transition: opacity 1s ease-in-out;
+  }
+  /*#description2 {
+    position: absolute;
+    top: 38%;
+    left: 50%;
+    font-size: 22px; 
+    opacity: 0;
+    transform: rotate(15deg);
+    color: #333;
+    transition-delay: 500ms;
+    transition: opacity 2s ease-in-out;
+  } */
+
+</style>
+</head>
+<body>
+
+<div id="animation-container">
+  <h1 id="animation-text">UNSRC</h1>
+</div>
+
+<div id="description">
+  <p>just a bad ai company</p>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function(event) {
+    var animationContainer = document.getElementById("animation-container");
+    var description = document.getElementById("description");
+    var description2 = document.getElementById("description2");
+
+    
+    // Trigger initial animation
+    setTimeout(function() {
+      animationContainer.classList.add("active");
+    }, 100);
+
+    // When the initial animation finishes, trigger the second animation
+    animationContainer.addEventListener("transitionend", function() {
+      description.style.opacity = "1"; // Corrected this line
+      description2.style.opacity = "2"; // Corrected this line
+
+    });
+  });
+</script>
+</body>
+</html>
