@@ -45,47 +45,36 @@
     animation: fadeOutAndSlide 1s ease-in-out 1s forwards;
   }
 
-  #description {
+  #description-container {
     position: absolute;
-    top: 45%;
-    left: 37%;
-    font-size: 22px; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
     opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+  #description-text {
+    font-size: 22px; 
     color: #333;
     transition-delay: 350ms; /* Transition delay should come after transition property */
     transition: opacity 1s ease-in-out;
   }
-  /*#description2 {
-    position: absolute;
-    top: 38%;
-    left: 50%;
-    font-size: 22px; 
-    opacity: 0;
-    transform: rotate(15deg);
-    color: #333;
-    transition-delay: 500ms;
-    transition: opacity 2s ease-in-out;
-  } */
 
 </style>
 </head>
 <body>
-
 <div id="animation-container">
-  <h1 id="animation-text">UNSRC</h1>
+<h1 id="animation-text">UNSRC</h1>
 </div>
-
-<div id="description">
-  <p>just a bad ai company</p>
+<div id="description-container">
+<p id="description-text">just a bad ai company</p>
 </div>
-
 <script>
   document.addEventListener("DOMContentLoaded", function(event) {
     var animationContainer = document.getElementById("animation-container");
-    var description = document.getElementById("description");
-    var description2 = document.getElementById("description2");
+    var descriptionContainer = document.getElementById("description-container");
 
-    
     // Trigger initial animation
     setTimeout(function() {
       animationContainer.classList.add("active");
@@ -93,9 +82,7 @@
 
     // When the initial animation finishes, trigger the second animation
     animationContainer.addEventListener("transitionend", function() {
-      description.style.opacity = "1"; // Corrected this line
-      description2.style.opacity = "2"; // Corrected this line
-
+      descriptionContainer.style.opacity = "1"; // Corrected this line
     });
   });
 </script>
