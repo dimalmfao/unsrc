@@ -1,90 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Interactive Website</title>
-<style>
-  @import url('https://fonts.cdnfonts.com/css/cascadia-code');
-  html, body {
-    font-family: 'Cascadia Code', sans-serif;    
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #f0f0f0;
-  }
-  
-  @keyframes fadeOutAndSlide {
-    0% {
-      transform: translateY(0);
-    }
-    100% {
-      transform: translateY(-50px);
-    }
-  }
-
-  #animation-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  
-  #animation-container.active {
-    opacity: 1;
-  }
-  
-  #animation-text {
-    font-size: 56px;
-    color: #333;
-    font-weight: bold;
-    transition: opacity 0.5s ease-in-out;
-    animation: fadeOutAndSlide 1s ease-in-out 1s forwards;
-  }
-
-  #description-container {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-  #description-text {
-    font-size: 22px; 
-    color: #333;
-    transition-delay: 350ms; /* Transition delay should come after transition property */
-    transition: opacity 1s ease-in-out;
-  }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <scripts src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<div id="animation-container">
-<h1 id="animation-text">UNSRC</h1>
-</div>
-<div id="description-container">
-<p id="description-text">just a bad ai company</p>
-</div>
-<script>
-  document.addEventListener("DOMContentLoaded", function(event) {
-    var animationContainer = document.getElementById("animation-container");
-    var descriptionContainer = document.getElementById("description-container");
+    <div class="overlay"></div>
+<div class="scanline"></div>
+<div class="wrapper">
+  <div class="content clearfix">
 
-    // Trigger initial animation
-    setTimeout(function() {
-      animationContainer.classList.add("active");
-    }, 100);
+    <header class="site clearfix">
+      <div class="col one">
+        <img src="https://cdn.discordapp.com/attachments/1195789945005146273/1212488528773251143/IMG_0910.png?ex=65f204f0&is=65df8ff0&hm=0a39a463ff59bc38527cef8b62e999b5ad78a71d3512d769b6dbffd8e0057312&" alt="591 Systems" width="740" height="729" id="logo-v" />
+      </div>
+      <div class="col two">
 
-    // When the initial animation finishes, trigger the second animation
-    animationContainer.addEventListener("transitionend", function() {
-      descriptionContainer.style.opacity = "1"; // Corrected this line
-    });
-  });
-</script>
+        <h4>unsrc (tm) <br /> <b>UnS</b>ou<b>rc</b>e (vewy pwoffesionall ai company)</h4>
+        <p>----------------------------------------</p>
+        <p>UNSRC v 1.0.0</p>
+        <p>(c) 2024 DIMALMFAO</p>
+        <p>- server 069 -</p>
+      </div>
+    </header>
+
+    <nav class="site clear">
+      <ul>
+        <li><a href="https://src.eco/" title="open uhh the source lol hehe" alt="open uhh the source lol hehe">SRC</a></li>
+        <li><a title="what the fuck? bruh" alt="what the fuck? bruh">ABOUT</a></li>
+        <li><a id="contact" class="contact" title="no lol" alt="no lol">CONTACT</a></li>
+      </ul>
+    </nav>
+
+    <p>System Administrator Integrated Message System (SAIMS)</p>
+    <p>System Administrator (SYSADM) - Dima Lmfao</p>
+
+    <p class="clear"><br /></p>
+
+    <p>Welcome to the System Administrator Integrated Message System (SAIMS) of UNSRC.</p>
+    <br>
+    <p> What is this? I don't know. Why are you here? I don't know. You should know, if you don't, you shouldn't know. Or do you? What is life? &#60;user_response>.</p><br />
+
+    <p>Should you bother with it?</p>
+    
+    <p>Maybe not.</p>
+  </div>
+</div>
 </body>
 </html>
