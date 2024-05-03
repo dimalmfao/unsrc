@@ -1,372 +1,184 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>unsrc</title>
+  <meta charset="utf-8">
+  <title>unsrc</title>
+  <style>
+    body {
+      display: flex;
+      margin: 0;
+      padding: 0;
+    }
+    .left-side {
+      flex: 1;
+      background-color: black;
+      color: white;
+    }
+    .content-wrapper {
+      flex: 1;
+      background-color: red;
+      color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+    span {
+      white-space: nowrap;
+    }
+    .rotated-text {
+      position: relative;
+      display: inline-block;
+      padding: 10px;
+      background-color: blue;
+      color: white;
+      transform: rotate(-50deg);
+    }
+    .rotated-text::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 100%;
+      transform: translateY(-50%);
+      border-width: 0 5px 5px 0;
+      border-style: solid;
+      border-color: transparent transparent blue blue;
+    }
+    .rotated-text-wrapper {
+      display: flex;
+      justify-content: center;
+    }
+    .spinning-text {
+      position: relative;
+      display: inline-block;
+      margin-right: 20px;
+      animation: spin 5s linear infinite;
+    }
+    .q {
+      animation: spin 2s linear infinite;
+    }
+
+    @keyframes spinq {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+    /* New styles for the blue triangle */
+    .blue-triangle {
+      width: 0;
+      height: 0;
+      border-left: 20px solid blue;
+      border-top: 20px solid transparent;
+      border-bottom: 20px solid transparent;
+      position: absolute;
+      transition: transform 0.5s ease-in-out; /* Added transition for smooth gliding animation */
+    }
+    /* New styles for the brown rectangle */
+    .brown-rectangle {
+      width: 150px;
+      height: 100px;
+      background-color: brown;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    /* New styles for text with lines */
+    .text-with-lines {
+      margin-top: 20px; /* Added margin to separate from the rotating text */
+      text-align: center;
+      color: white; /* Change the color to white */
+      font-size: 18px; /* Adjust font size for better readability */
+    }
+    .line {
+      margin-bottom: 8px; /* Adjust line spacing */
+    }
+    .aqwzsx {
+          position: relative;
+      display: inline-block;
+
+top: 50%;
+      left: 50%;
+    }
+    .look {
+      position: relative;
+      display: inline-block;
+      top: 60%;
+      left: 20%;
+    }
+  </style>
 </head>
-<style>
-  @import url(https://fonts.googleapis.com/css?family=VT323);
-
-@keyframes scroll {
-	0% { height: 0 }
-	100% { height: 100%; }
-}
-
-@keyframes type { 
-  from { width: 0; } 
-} 
-
-@keyframes type2 {
-  0%{width: 0;}
-  50%{width: 0;}
-  100%{ width: 100; } 
-} 
-
-@keyframes blink {
-  to{opacity: .0;}
-}
-
-@keyframes scan {
-	from { top: 0 }
-	to { top: 100% }
-}
-
-@keyframes flicker {
-		0% { opacity: 0.15795 }
-		5% { opacity: 0.31511 }
-		10% { opacity: 0.94554 }
-		15% { opacity: 0.2469 }
-		20% { opacity: 0.62031 }
-		25% { opacity: 0.0293 }
-		30% { opacity: 0.00899 }
-		35% { opacity: 0.5344 }
-		40% { opacity: 0.12778 }
-		45% { opacity: 0.52042 }
-		50% { opacity: 0.3823 }
-		55% { opacity: 0.2198 }
-		60% { opacity: 0.9383 }
-		65% { opacity: 0.86615 }
-		70% { opacity: 0.68695 }
-		75% { opacity: 0.55749 }
-		80% { opacity: 0.96984 }
-		85% { opacity: 0.0361 }
-		90% { opacity: 0.24467 }
-		95% { opacity: 0.08351 }
-		100% { opacity: 0.54813 }
-	}
-
-::-webkit-scrollbar {
-  display: none;
-}
-
-* {
-	box-sizing: border-box;
-	}
-	
-html,
-body {
-	background: #383838;
-	color: #00dd00;
-	font-size: 64.5%;
-	font-size: 1.4em;
-	font-family: 'VT323', Courier;
-	height: 100%;
-	margin: 0;
-	padding: 0;
-}
-
-h1, h2, h3 h4, h5, h6 { 
-	font-weight: normal;
-	margin: 0;
-	text-transform: uppercase;
-}
-h4 b {
-  color: white;
-}
-a {
-	color: white;	
-	text-decoration: none;	
-}
-
-a:hover {
-	color: red;
-    cursor: pointer;
-}
-
-.contact:hover::after {
-    content: " (NO LOL)";
-    color: white; /* You can add other styles as needed */
-}
-
-p { 
-	line-height: 100%;
-	margin: 0; 
-}
-	
-span { animation: blink 1s infinite }
-
-ul {
-	list-style: none;
-}
-
-ul a:before,
-p a:before {
-	color: #00dd00;
-	content: ' [ ';
-}
-
-ul a:after,
-p a:after {
-	color: #00dd00;
-	content: ' ] ';	
-}
-
-header.site {
-	margin: 0 0 40px 0;
-	text-transform: uppercase;
-}
-
-nav.site { 
-	margin: 0 0 40px 0;
-  position: relative;
-  width: 100%;
-  z-index: 10;
-}
-
-nav.site ul {
-	padding: 0;
-}
-
-nav.site ul li {
-	display: inline-block;
-  padding: 0 10px;
-  min-width: 250px;
-  width: auto;
-}
-
-.overlay {
-	height: 1px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 1px;
-}
-
-.overlay:before {
-	background: linear-gradient(#101010 50%, rgba(16, 16, 16, 0.2) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.03));
-	background-size: 100% 3px, 6px 100%;
-	content: "";
-	display: block;
-	pointer-events: none;
-	position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	z-index: 2;
-}
-	
-.overlay:after {
-	animation: flicker 0.30s infinite;
-	background: rgba(16, 16, 16, 0.2);
-	content: "";
-	display: block;
-	pointer-events: none;
-	position: fixed;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-	z-index: 2;
-}
-
-.col {
-	float: left;
-	padding: 0 20px;
-}
-
-.col.two { width: auto; }
-
-.wrapper {
-  animation: scroll 5s 1;
-  margin: 0;
-  overflow: hidden;
-  padding: 0;
-    scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.content { 
-	animation: scroll 3s 1;
-  overflow: hidden;
-	padding: 40px; 
-	position: relative;
-	width: 95%;
-}
-
-#logo-v {
-	display: block;
-	height: auto;
-	margin: 0 auto;
-	width: 200px;
-}
-
-img.pip-hero {
-	display: block;
-	float: left;
-	height: auto;
-	margin: 5px 10px 5px 0;
-	width: 120px;
-}
-
-form {}
-
-label {
-	clear: left;
-	display: block;
-	float: left;
-	margin-right: 10px;
-	padding-top: 5px;
-}
-
-input[type=text],
-textarea {
-	background: transparent;
-	border: none;
-	color: #00dd00;
-	display: block;
-	float: left;
-	font-family: 'VT323', Courier;
-	font-size: 1.2em;
-	position: relative;
-	width: 80%;
-	z-index: 10
-}
-
-textarea {
-	margin-bottom: 20px
-	overflow: auto;
-	resize: none;
-}
-
-input[type=text]:focus,
-textarea:focus,
-input[type=submit]:focus,
-a.button:focus {
-	outline: 0;
-}
-
-input[type=submit],
-a.button {
-	background: transparent;
-	border: 1px solid #00dd00;
-	clear: both;
-	color: #00dd00;
-	cursor: hand;
-	display: inline-block;
-	font-family: 'VT323', Courier;
-	font-size: 1em;
-	margin-bottom: 20px;
-	opacity: 0.25;
-	padding: 10px 100px;
-	position: relative;
-	text-decoration: none;
-	text-transform: uppercase;
-	z-index: 10;
-}
-
-input[type=submit]:hover,
-a.button:hover {
-	background: #00dd00;
-	color: #383838;
-	opacity: 0.8;
-}
-
-.expandingArea { position: relative }
-	
-.scanline {
-	animation: scroll 10s 5s infinite;
-	background: -moz-linear-gradient(top,  rgba(0,221,0,0) 0%, rgba(0,221,0,1) 50%, rgba(0,221,0,0) 100%);
-	background: -webkit-linear-gradient(top,  rgba(0,221,0,0) 0%,rgba(0,221,0,1) 50%,rgba(0,221,0,0) 100%);
-	background: linear-gradient(to bottom,  rgba(0,221,0,0) 0%,rgba(0,221,0,1) 50%,rgba(0,221,0,0) 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0000dd00', endColorstr='#0000dd00',GradientType=0 );
-	display: block;
-	height: 20px;
-	opacity: 0.05;
-	position: absolute;
-		left: 0;
-		right: 0;
-		top: -5%;
-	z-index: 2;
-}
-
-.clear {
-	clear: both;
-}
-
-.clearfix {
-  overflow: auto;
-  zoom: 1;
-}
-
-.upper { text-transform: uppercase; }
-</style>
 <body>
-    <div class="overlay"></div>
-<div class="scanline"></div>
-<div class="wrapper">
-  <div class="content clearfix">
+  <div class="left-side">
+    <div class="spinning-text">
+      <h1 style="color: #2bff00;">w'z isnt <br> how do you describe <br> the real meaning of 'real'?</h1>
 
-    <header class="site clearfix">
-      <div class="col one">
-        <img src="https://cdn.discordapp.com/attachments/1195789945005146273/1212497415559716874/Untitled_Artwork.png?ex=65f20d36&is=65df9836&hm=56ae564405c9908ee4ece8f2fefef53bda35f98f84faf4062d99ba183708501f&" alt="591 Systems" width="740" height="729" id="logo-v" />
-      </div>
-      <div class="col two">
-
-        <h4>unsrc (tm) <br /> <b>UnS</b>ou<b>rc</b>e (vewy pwoffesionall ai company)</h4>
-        <p>----------------------------------------</p>
-        <p>UNSRC v 1.6.9</p>
-        <p>(c) 2024 DIMALMFAO</p>
-        <p>- server 069 -</p>
-      </div>
-    </header>
-
-    <nav class="site clear">
-      <ul>
-        <li><a href="https://src.eco/" title="open uhh the source lol hehe" alt="open uhh the source lol hehe">SRC</a></li>
-        <li><a href="https://src.eco/" title="what the fuck? bruh" alt="what the fuck? bruh">ABOUT</a></li>
-        <li><a id="contact" class="contact" title="no lol" alt="no lol">CONTACT</a></li>
-      </ul>
-    </nav>
-
-    <p>System Administrator Integrated Message System (SAIMS)</p>
-    <p>System Administrator (SYSADM) - Dima Lmfao</p>
-
-    <p class="clear"><br /></p>
-
-    <p>Welcome to the System Administrator Integrated Message System (SAIMS) of UNSRC.</p>
-    <br>
-    <p> What is this? I don't know. Why are you here? I don't know. You should know, if you don't, you shouldn't know. Or do you? What is life? &#60;user_response>.</p><br />
-
-    <p>Should you bother with it?</p>
-    
-    <p>Maybe not.</p>
+    </div>
+     <div class="aqwzsx">
+      <div style="color:yellow;">is real really the real<br>meaning of the word real?</div>
+      <div class="q" style="color:#a257ff;">q</div>
+    </div>
+    <h3 class="look">is this a b or a q?<br>f12</h3>
   </div>
-</div>
+
+  <div class="content-wrapper">
+    <h1>unsrc</h1>
+    <p>you never know when it will come.</p>
+    <p>spend time with people, until they go.</p>
+    <h4>is life real?</h4>
+    <div>
+      <p style="color: black; background: white;">no<basa>way</basa></p>
+      <span>
+        <h1 style="color: #2bff00;">is anything real?<h2>if everything is<h1>going to fade away<h3>one day?</h3></h1></h2></h1>
+        <div class="rotated-text-wrapper">
+          <div class="rotated-text">what if someone will be here, without being itself?</<div>
+        </div>
+      </span>
+    </div>
+    <div class="text-with-lines">
+      <div class="line">here's a line</div>
+      <div class="line">here's another one </div>
+      <div class="line">and another one </div>
+    </div>
+  </div>
+  <div class="brown-rectangle"></div>
+  <div class="blue-triangle" id="blueTriangle"></div>
+
+  <script>
+    // Get the blue triangle element
+    var blueTriangle = document.getElementById("blueTriangle");
+
+    // Function to generate random position for the blue triangle
+    function randomizePosition() {
+      // Generate random values for left and top positions
+      var randomLeft = Math.random() * window.innerWidth;
+      var randomTop = Math.random() * window.innerHeight;
+
+      // Set the position of the blue triangle
+      blueTriangle.style.left = randomLeft + "px";
+      blueTriangle.style.top = randomTop + "px";
+
+      // Apply gliding animation by changing the transform property
+      blueTriangle.style.transform = "translate(0, -50%) translateX(" + (randomLeft - window.innerWidth / 2) + "px) translateY(" + (randomTop - window.innerHeight / 2) + "px)";
+    }
+
+    // Call the randomizePosition function initially
+    randomizePosition();
+
+    // Call the randomizePosition function every 3 seconds to change the position
+    setInterval(randomizePosition, 3000);
+  </script>
 </body>
-<script>
-  $(document).ready(function () {
-    $("#title").focus();
-    $("#text").autosize();
-  });
-  document.getElementById("contact").addEventListener("mouseover", function() {
-    this.textContent = "( NO LOL )";
-});
-
-document.getElementById("contact").addEventListener("mouseout", function() {
-    this.textContent = "CONTACT";
-});
-
-</script>
 </html>
