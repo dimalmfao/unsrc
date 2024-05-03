@@ -2,7 +2,7 @@
 <html lang="">
 <head>
   <meta charset="utf-8">
-  <title>unsrc - aqwzsx</title>
+  <title>unsrc</title>
   <style>
     body {
       display: flex;
@@ -55,16 +55,13 @@
       margin-right: 20px;
       animation: spin 5s linear infinite;
     }
-    .q {
-      animation: spin 2s linear infinite;
-    }
 
     @keyframes spinq {
       from {
         transform: rotate(0deg);
       }
       to {
-        transform: rotate(360deg);
+        transform: rotate(-360deg);
       }
     }
     @keyframes spin {
@@ -106,17 +103,21 @@
       margin-bottom: 8px; /* Adjust line spacing */
     }
     .aqwzsx {
-          position: relative;
-      display: inline-block;
 
-top: 50%;
-      left: 50%;
+      position: absolute;
+      top: 50%;
+      left:20%;
     }
     .look {
-      position: relative;
-      display: inline-block;
-      top: 60%;
-      left: 20%;
+
+      position: absolute;
+      top: 70%;
+      left:20%;
+    }
+    .q {
+      height:30px;
+      width:10px;
+      animation: spinq 1s linear infinite
     }
   </style>
 </head>
@@ -154,11 +155,11 @@ top: 50%;
     </div>
   </div>
   <div class="brown-rectangle"></div>
-  <div class="blue-triangle" id="blueTriangle"></div>
+  <div class="elon" id="elon"></div>
 
   <script>
     // Get the blue triangle element
-    var blueTriangle = document.getElementById("blueTriangle");
+    var blueTriangle = document.getElementById("elon");
 
     // Function to generate random position for the blue triangle
     function randomizePosition() {
